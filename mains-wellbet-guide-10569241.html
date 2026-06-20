@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>吉祥坊 · 产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f9fc;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1f2e3a;
+            line-height: 1.6;
+            padding: 1.5rem 1rem 3rem;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* 网格卡片背景 */
+        .grid-bg {
+            position: relative;
+        }
+
+        .grid-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 150, 136, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 150, 136, 0.06) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .grid-bg > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* hero 区域 */
+        .hero {
+            text-align: center;
+            padding: 3rem 0 2.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(145deg, #00695c, #00897b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #3e5a6a;
+            font-weight: 400;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e0f2f1;
+            color: #00695c;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            margin-top: 0.75rem;
+        }
+
+        /* 卡片布局 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        @media (min-width: 600px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 960px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.4rem 1.6rem;
+            box-shadow: 0 4px 12px rgba(0, 80, 70, 0.06), 0 1px 3px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0, 150, 136, 0.15);
+            transition: 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 120, 100, 0.10);
+            border-color: #26a69a;
+            transform: translateY(-2px);
+        }
+
+        .card .icon {
+            font-size: 1.8rem;
+            display: inline-block;
+            background: #e0f7f5;
+            width: 48px;
+            height: 48px;
+            line-height: 48px;
+            text-align: center;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            color: #00695c;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #1f2e3a;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3b5668;
+            margin-bottom: 0.3rem;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #00796b10;
+            color: #00796b;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.9rem;
+            margin-top: 0.5rem;
+            border: 1px solid #00796b20;
+        }
+
+        /* 宽卡片 + 说明区 */
+        .insight-block {
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            border-radius: 24px;
+            padding: 2rem 1.8rem;
+            margin: 2rem 0 1.8rem;
+            border: 1px solid rgba(0, 150, 136, 0.20);
+            box-shadow: 0 6px 18px rgba(0, 70, 60, 0.04);
+        }
+
+        .insight-block h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: #004d40;
+            border-left: 5px solid #26a69a;
+            padding-left: 1rem;
+        }
+
+        .insight-block p {
+            margin-bottom: 1rem;
+            color: #1f3a47;
+        }
+
+        .insight-block ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.5rem;
+            margin: 1.2rem 0 0.2rem;
+        }
+
+        .insight-block li {
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .insight-block li::before {
+            content: "▹";
+            color: #00897b;
+            font-weight: 600;
+            margin-right: 0.2rem;
+        }
+
+        .faq-mini {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.8rem 0;
+        }
+
+        @media (min-width: 600px) {
+            .faq-mini {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid #cfdde6;
+            border-radius: 18px;
+            padding: 1rem 1.3rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #004d40;
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .faq-item span {
+            font-size: 0.9rem;
+            color: #305565;
+        }
+
+        /* 链接样式 */
+        .text-link {
+            color: #00796b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(0, 121, 107, 0.3);
+            transition: 0.15s;
+        }
+
+        .text-link:hover {
+            border-bottom-color: #004d40;
+            color: #004d40;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 0.5rem 1.4rem;
+            border: 1.5px solid #009688;
+            border-radius: 40px;
+            color: #00695c;
+            font-weight: 500;
+            font-size: 0.9rem;
+            background: transparent;
+            transition: 0.2s;
+            cursor: default;
+            text-decoration: none;
+        }
+
+        .btn-outline:hover {
+            background: #e0f2f1;
+            border-color: #00695c;
+        }
+
+        .footnote {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #bfd9d6;
+            font-size: 0.85rem;
+            color: #4f6f7e;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .insight-block { padding: 1.4rem; }
+            .card { padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page grid-bg">
+
+    <!-- hero 摘要 -->
+    <div class="hero">
+        <h1>吉祥坊 · 产品摘要</h1>
+        <p>围绕关键词「吉祥坊」构建的产品化说明：聚焦平台特性、使用场景与理性参考。</p>
+        <div class="badge">⏺ 简洁 · 专业 · 信息密度</div>
+    </div>
+
+    <!-- 网格卡片：亮点 & 特点 -->
+    <div class="card-grid">
+        <div class="card">
+            <div class="icon">⚙️</div>
+            <h3>全场景适配</h3>
+            <p>覆盖移动端与桌面端，提供统一交互体验。界面响应式布局经过优化，在手机、平板、笔记本上均保持清晰的信息层级。</p>
+            <span class="tag">响应式</span>
+        </div>
+        <div class="card">
+            <div class="icon">🧩</div>
+            <h3>模块化信息</h3>
+            <p>内容以卡片、区块形式组织，重点突出。便于快速浏览摘要、功能亮点、使用建议，降低认知负荷。</p>
+            <span class="tag">结构化</span>
+        </div>
+        <div class="card">
+            <div class="icon">🔒</div>
+            <h3>克制的访问引导</h3>
+            <p>不诱导点击，不夸大描述。提供清晰、真实的链接指向，用户可基于自身判断决定是否进一步了解。</p>
+            <span class="tag">可信</span>
+        </div>
+    </div>
+
+    <!-- 亮点与使用建议区块 -->
+    <div class="insight-block">
+        <h2>核心亮点 & 使用建议</h2>
+        <p>从产品视角拆解「吉祥坊」主题：平台强调模块整合与低干扰体验，适合对信息效率有要求的用户。以下为几项观察：</p>
+        <ul>
+            <li>信息架构偏向卡片式，层级直观，减少跳转深度</li>
+            <li>配色以蓝绿为基调，视觉舒适，适合长时间浏览</li>
+            <li>不建议盲目信任第三方评价，建议亲自验证界面与功能</li>
+            <li>优先在主流浏览器（Chrome / Safari 最新版）下使用，获得完整样式</li>
+            <li>数据隐私方面，参考平台自身公示条款，保持个人判断</li>
+        </ul>
+        <p style="margin-top: 1.2rem;">若想直接访问，可通过下方链接了解 <a href="https://mains-wellbet.com" class="text-link">吉祥坊</a> 的当前内容。该链接为官方网站，建议在熟悉环境内查看。</p>
+    </div>
+
+    <!-- FAQ 摘要 使用网格 -->
+    <h2 style="font-size: 1.4rem; font-weight: 500; margin: 1.2rem 0 0.8rem; color: #004d40;">FAQ 摘要</h2>
+    <div class="faq-mini">
+        <div class="faq-item">
+            <strong>吉祥坊 主要面向哪些用户？</strong>
+            <span>面向对数字服务、信息整合有需求的成人用户。平台提供模块化界面，适合快速获取内容摘要。</span>
+        </div>
+        <div class="faq-item">
+            <strong>是否需要注册？</strong>
+            <span>部分功能可能要求创建账户。建议访问前阅读平台相关说明，根据自身需求决定。</span>
+        </div>
+        <div class="faq-item">
+            <strong>移动端体验如何？</strong>
+            <span>经过响应式适配，在手机浏览器上布局会自适应，按钮及卡片间距针对触控优化。</span>
+        </div>
+        <div class="faq-item">
+            <strong>内容更新频率？</strong>
+            <span>平台内容由官方维护。本介绍页仅做静态说明，不反映实时变更，以实际页面为准。</span>
+        </div>
+    </div>
+
+    <!-- 场景提示 + 按钮 (非链接) -->
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; margin: 1.8rem 0;">
+        <div style="background: #e0f2f1; border-radius: 20px; padding: 0.6rem 1.4rem; color: #00695c; font-size: 0.9rem;">
+            ⚡ 使用场景举例：内容概览、功能对比、移动端快速查阅
+        </div>
+        <span class="btn-outline">了解更多 · 自行判断</span>
+    </div>
+
+    <!-- footer 水印 -->
+    <div class="footnote">
+        <span>© 产品说明页 · 仅供参考，不构成任何推荐或保证</span>
+        <span>链接指向 <a href="https://mains-wellbet.com" class="text-link">吉祥坊</a></span>
+    </div>
+
+</div>
+</body>
+</html>
