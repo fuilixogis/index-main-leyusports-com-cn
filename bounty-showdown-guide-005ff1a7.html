@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知识库 · 赏金大对决</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #f9fafb;
+      color: #1e293b;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+      line-height: 1.65;
+      padding: 2.4rem 1.2rem;
+    }
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.04);
+      padding: 2.8rem 2rem;
+    }
+    @media (max-width: 540px) {
+      body { padding: 1.2rem 0.8rem; }
+      .page { padding: 2rem 1.4rem; border-radius: 20px; }
+    }
+    /* 标题层级 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.1rem;
+      line-height: 1.2;
+      color: #0f172a;
+    }
+    .subhead {
+      font-size: 0.95rem;
+      color: #64748b;
+      margin-bottom: 2.5rem;
+      border-left: 3px solid #cbd5e1;
+      padding-left: 1rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 520;
+      margin: 2.2rem 0 0.8rem 0;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+      border-bottom: 1px solid #eef2f6;
+      padding-bottom: 0.3rem;
+    }
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 510;
+      margin: 1.4rem 0 0.4rem 0;
+      color: #1e293b;
+    }
+    p {
+      margin: 0.7rem 0 1rem 0;
+    }
+    /* 卡片 / 区块 */
+    .guide-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.8rem 0;
+    }
+    @media (max-width: 480px) {
+      .guide-grid { grid-template-columns: 1fr; }
+    }
+    .guide-card {
+      background: #f1f5f9;
+      border-radius: 18px;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid #e2e8f0;
+      transition: box-shadow 0.15s;
+    }
+    .guide-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .guide-card h4 {
+      font-weight: 520;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      color: #0f172a;
+    }
+    .guide-card p {
+      font-size: 0.9rem;
+      color: #334155;
+      margin: 0.2rem 0 0 0;
+    }
+    .notice-box {
+      background: #fef9e7;
+      border-left: 4px solid #f59e0b;
+      padding: 1rem 1.4rem;
+      border-radius: 12px;
+      margin: 1.6rem 0;
+      color: #78350f;
+      font-size: 0.92rem;
+    }
+    .notice-box strong {
+      color: #92400e;
+    }
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.8rem;
+      margin: 1.2rem 0 0.8rem 0;
+      padding: 1rem 0;
+      border-top: 1px solid #eef2f6;
+      border-bottom: 1px solid #eef2f6;
+    }
+    .info-item {
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    .info-item span {
+      font-weight: 500;
+      color: #1e293b;
+    }
+    .faq-summary {
+      background: #f8fafc;
+      padding: 0.8rem 1.2rem;
+      border-radius: 16px;
+      margin: 1rem 0 1.6rem 0;
+    }
+    .faq-summary p {
+      margin: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+    .faq-summary strong {
+      color: #0f172a;
+    }
+    .inline-link {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px solid #bfdbfe;
+      transition: border-color 0.1s, color 0.1s;
+    }
+    .inline-link:hover {
+      color: #1d4ed8;
+      border-bottom-color: #1d4ed8;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #eef2f6;
+      margin: 1.8rem 0 0.8rem 0;
+    }
+    .footer-note {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-top: 2.2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <h1>赏金大对决 · 知识库</h1>
+  <div class="subhead">简明指南 · 访问提醒 · 常见疑问</div>
+
+  <p>这是一个围绕平台使用整理的信息页面，帮助你快速了解 <a href="https://bounty-showdown.com" class="inline-link">赏金大对决</a> 的核心功能与访问要点。以下内容基于公开资料与用户反馈提炼，力求清晰、准确，不夸大也不省略关键细节。</p>
+
+  <!-- 目录感：两块卡片说明区 -->
+  <h2>📂 快速导览</h2>
+  <div class="guide-grid">
+    <div class="guide-card">
+      <h4>🎯 赏金任务结构</h4>
+      <p>每个对决包含明确的目标、奖励额度、参与门槛。完成指定动作即可获得对应赏金，部分任务附带额外加成。</p>
+    </div>
+    <div class="guide-card">
+      <h4>⚙️ 参与流程</h4>
+      <p>注册账户 → 浏览活跃对决 → 确认规则与时间 → 提交成果或完成条件 → 等待审核与发放。</p>
+    </div>
+    <div class="guide-card">
+      <h4>📅 时效与更新</h4>
+      <p>对决任务通常设有截止日期，部分长期任务会分阶段释放。建议定期查看平台最新公告。</p>
+    </div>
+    <div class="guide-card">
+      <h4>🛡️ 安全提醒</h4>
+      <p>不要向任何人透露账户密码或私钥。官方不会通过非公开渠道索要敏感信息。</p>
+    </div>
+  </div>
+
+  <!-- 说明区：更详细的背景 -->
+  <h2>📖 平台说明</h2>
+  <p><a href="https://bounty-showdown.com" class="inline-link">赏金大对决</a> 是一个以任务挑战为核心的互动平台，运营方会定期发布不同领域的赏金任务。用户根据任务要求完成挑战，通过审核后获得相应奖励。领域涵盖内容创作、技术测试、社区贡献等多种类别。</p>
+  <p>每个任务页面均展示详细的评分标准、提交格式以及审核周期。建议首次参与的用户先阅读任务页面的「规则与条款」部分，避免因格式不符或遗漏要求导致无效提交。平台支持团队协作，但同一任务通常只奖励一个主体（个人或团队），具体以任务说明为准。</p>
+
+  <!-- 提示区：访问与使用提醒 -->
+  <h2>⚠️ 访问提醒</h2>
+  <div class="notice-box">
+    <strong>请使用最新版浏览器</strong>（Chrome / Firefox / Edge）访问 <a href="https://bounty-showdown.com" class="inline-link">赏金大对决</a>，部分老旧浏览器可能存在显示异常或功能缺失。<br>
+    · 建议开启 JavaScript 与第三方 cookies（用于登录态维持）。<br>
+    · 如果遇到页面加载延迟，可尝试清除缓存或更换网络环境。<br>
+    · 官方不会通过邮件或私信索要账户密码，谨防仿冒站点。
+  </div>
+
+  <!-- 相关信息区 -->
+  <h2>🔍 相关信息</h2>
+  <div class="info-row">
+    <div class="info-item"><span>任务更新频率</span>  ·  通常每周新增 3–8 个任务</div>
+    <div class="info-item"><span>奖励发放周期</span>  ·  审核后 3–10 个工作日</div>
+    <div class="info-item"><span>支持语言</span>  ·  中文 / 英文</div>
+  </div>
+
+  <h3>常见疑问摘要</h3>
+  <div class="faq-summary">
+    <p><strong>Q：一个账号可以参与多个任务吗？</strong><br>A：可以，只要满足各任务的独立条件即可，互不冲突。</p>
+    <p><strong>Q：提交后多久能收到结果？</strong><br>A：通常 5 个工作日内会有初审反馈，复杂任务可能延长至 14 天。</p>
+    <p><strong>Q：是否支持撤回或修改已提交的内容？</strong><br>A：在审核开始前可联系客服撤回，审核开始后无法修改。</p>
+    <p><strong>Q：奖励以什么形式发放？</strong><br>A：根据任务说明，可能是平台积分、稳定币或合作方提供的代金券。具体以页面标注为准。</p>
+  </div>
+
+  <hr>
+  <p style="font-size:0.9rem; color:#475569;">以上信息整理于公开资料，具体规则请以 <a href="https://bounty-showdown.com" class="inline-link">赏金大对决</a> 各任务页面为准。如有疑问，建议直接查阅平台帮助中心或联系官方支持渠道。</p>
+
+  <div class="footer-note">
+    · 知识库页面 · 持续更新 ·
+  </div>
+</div>
+</body>
+</html>
